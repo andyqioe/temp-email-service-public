@@ -1,0 +1,69 @@
+{
+  "name": "ses-inbox",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-hosted, receive-only, horizontally scalable inbox on Amazon SES + S3 with pluggable Lambda parsers",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "bin": {
+    "qmail": "bin/qmail.mjs"
+  },
+  "scripts": {
+    "qmail": "tsx cli/main.ts",
+    "preflight": "tsx scripts/preflight.ts",
+    "deploy": "tsx scripts/deploy.ts",
+    "synth": "tsx scripts/deploy.ts --synth-only",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run --project unit",
+    "test:e2e": "tsx scripts/e2e.ts",
+    "check": "npm run typecheck && npm run lint && npm run test",
+    "test:e2e:run": "vitest run --project e2e && vitest run --project e2e-autopause",
+    "build:cli": "tsx scripts/build-cli.ts",
+    "pack:cli": "npm run build:cli && npm pack ./dist/qmail --pack-destination ./dist"
+  },
+  "dependencies": {
+    "@aws-sdk/client-budgets": "^3.1138.0",
+    "@aws-sdk/client-cloudformation": "^3.1137.0",
+    "@aws-sdk/client-cloudwatch": "^3.1137.0",
+    "@aws-sdk/client-cloudwatch-logs": "^3.1138.0",
+    "@aws-sdk/client-cost-explorer": "^3.1138.0",
+    "@aws-sdk/client-dynamodb": "^3.1137.0",
+    "@aws-sdk/client-lambda": "^3.1137.0",
+    "@aws-sdk/client-route-53": "^3.1137.0",
+    "@aws-sdk/client-s3": "^3.1137.0",
+    "@aws-sdk/client-ses": "^3.1137.0",
+    "@aws-sdk/client-sesv2": "^3.1137.0",
+    "@aws-sdk/client-sns": "^3.1137.0",
+    "@aws-sdk/client-sqs": "^3.1137.0",
+    "@aws-sdk/client-sts": "^3.1137.0",
+    "@aws-sdk/lib-dynamodb": "^3.1137.0",
+    "@aws-sdk/s3-request-presigner": "^3.1137.0",
+    "commander": "^15.0.0",
+    "mailparser": "^3.9.28",
+    "tsx": "^4.23.15",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/aws-lambda": "^8.10.163",
+    "@types/mailparser": "^3.4.6",
+    "@types/node": "^26.6.2",
+    "@types/nodemailer": "^8.0.2",
+    "aws-cdk": "^2.1142.0",
+    "aws-cdk-lib": "^2.270.0",
+    "constructs": "^10.8.1",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.11.0",
+    "nodemailer": "^10.0.10",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.70.1",
+    "vitest": "^5.0.1"
+  },
+  "license": "MIT"
+}

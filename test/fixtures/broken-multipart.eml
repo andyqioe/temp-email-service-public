@@ -1,0 +1,16 @@
+From: broken@example.org
+To: frank@in.example.com
+Subject: broken multipart
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="never-closed"
+
+--never-closed
+Content-Type: text/plain
+
+Body text before a broken part.
+--never-closed
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="bad.bin"
+
+!!!! this is not base64 @@@@

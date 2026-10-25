@@ -1,0 +1,38 @@
+From: Shop <noreply@shop.example.org>
+To: "Carol" <carol+orders@in.example.com>, dave@in.example.com
+Cc: erin@elsewhere.example.net
+Subject: =?UTF-8?B?w5hyZGVyIGNvbmZpcm1lZCDinJM=?=
+Date: Tue, 22 Sep 2026 11:00:00 +0000
+Message-ID: <multi-1@shop.example.org>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="outer"
+
+--outer
+Content-Type: multipart/alternative; boundary="alt"
+
+--alt
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Please confirm your email: https://shop.example.org/verify?token=abc123&u=1
+=E2=9C=93 done
+
+--alt
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Please <a href="https://shop.example.org/verify?token=abc123&amp;u=1">confirm your email</a>.</p><p><a href="https://shop.example.org/unsubscribe">unsubscribe</a></p></body></html>
+--alt--
+
+--outer
+Content-Type: application/pdf; name="invoice.pdf"
+Content-Disposition: attachment; filename="invoice.pdf"
+Content-Transfer-Encoding: base64
+
+JVBERi0xLjQKJcfsj6IKMSAwIG9iago8PD4+CmVuZG9iagp0cmFpbGVyCjw8Pj4KJSVFT0YK
+
+--outer
+Content-Type: text/plain; charset=utf-8; name="../../etc/passwd"
+Content-Disposition: attachment; filename="../../etc/passwd"
+
+not really a passwd file
+--outer--

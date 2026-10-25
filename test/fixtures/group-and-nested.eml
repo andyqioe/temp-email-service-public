@@ -1,0 +1,20 @@
+From: forwarder@example.org
+To: undisclosed-recipients:;
+Subject: Fwd: original
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="b1"
+
+--b1
+Content-Type: text/plain
+
+See the forwarded message.
+--b1
+Content-Type: message/rfc822
+
+From: original@example.org
+To: someone@example.org
+Subject: original
+Content-Type: text/plain
+
+Inner body.
+--b1--

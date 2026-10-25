@@ -1,0 +1,14 @@
+node_modules/
+cdk.out/
+dist/
+infra/.preflight.json
+*.log
+.DS_Store
+test/e2e/.state/
+
+inbox.config.ts
+.env
+.env.*
+.npmrc
+*.pem
+*.key
